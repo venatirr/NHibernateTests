@@ -14,6 +14,7 @@ namespace NHibernateTests.Mappings
 
 	public class ActorMap : ClassMap<Actor>
 	{
+		//add comment
 		public ActorMap()
 		{
 			Id(x => x.Id);
