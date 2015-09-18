@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conventions\TruncateStringConvention.cs" />
+    <Compile Include="Conventions\TruncateStringType.cs" />
     <Compile Include="Mappings\Actor.cs" />
     <Compile Include="Mappings\Movie.cs" />
     <Compile Include="Program.cs" />

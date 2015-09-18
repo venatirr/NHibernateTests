@@ -1,6 +1,7 @@
 ﻿using System;
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Instances;
+using FluentNHibernate.MappingModel;
 using NHibernate.SqlTypes;
 using NHibernate.Type;
 
@@ -11,17 +12,19 @@ namespace NHibernateTests.Conventions
 		protected override void Apply(TruncateAttribute attribute, IPropertyInstance instance)
 		{
 			if (attribute.TruncateType != null)
-				instance.CustomType(attribute.TruncateType);
+			{
+				instance.CustomType(typeof(TruncateString));
+			}
+
 		}
 	}
 
 	[AttributeUsage(AttributeTargets.Property, Inherited = true)]
 	public sealed class TruncateAttribute : Attribute
 	{
-		/// <summary>
-		/// Must be a derived class from TruncateString class
-		/// </summary>
 		public Type TruncateType { get; set; }
+
+		public int Length { get; set; }
 	}
 
 	public abstract class TruncateString : AbstractStringType

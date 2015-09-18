@@ -7,7 +7,7 @@ namespace NHibernateTests.Mappings
 	public class Actor
 	{
 		public virtual int Id { get; set; }
-		[Truncate(TruncateType = typeof(TruncateToFiftyString))]
+		[Truncate(TruncateType = typeof(TruncateToFiftyString), Length = 3)]
 		public virtual string Name { get; set; }
 		public virtual IList Movies { get; set; }
 	}
@@ -17,7 +17,7 @@ namespace NHibernateTests.Mappings
 		public ActorMap()
 		{
 			Id(x => x.Id);
-			Map(x => x.Name);
+			Map(x => x.Name).Length(3).CustomType<TruncateStringType>();
 
 			HasManyToMany<Movie>(x => x.Movies)
 				.Table("Cast")

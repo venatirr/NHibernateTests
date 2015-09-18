@@ -49,7 +49,7 @@ namespace NHibernateTests
 					)
 					.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Actor>())
 					.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Movie>())
-					.Mappings(m => m.FluentMappings.Conventions.Add<TruncateStringConvention>())
+					//.Mappings(m => m.FluentMappings.Conventions.Add<TruncateStringConvention>())					
 					.ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
 					.BuildSessionFactory());
 			}
